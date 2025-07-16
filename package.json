@@ -1,0 +1,12 @@
+{
+  "name": "webapp-cicd",
+  "version": "1.0.0",
+  "description": "Simple web app for CI/CD demo",
+  "main": "index.html",
+  "scripts": {
+    "test": "node tests/test.js"
+  },
+  "keywords": ["cicd", "jenkins", "kubernetes"],
+  "author": "Your Name",
+  "license": "MIT"
+}
