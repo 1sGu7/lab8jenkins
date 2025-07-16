@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang Web Đầu Tiên</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            max-width: 600px;
+            width: 90%;
+        }
+
+        h1 {
+            color: white;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .subtitle {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.2em;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .feature-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-card h3 {
+            color: white;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+
+        .feature-card p {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.9em;
+            line-height: 1.5;
+        }
+
+        .version {
+            margin-top: 30px;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9em;
+        }
+
+        .status {
+            display: inline-block;
+            background: #4CAF50;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.8em;
+            margin-top: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+            
+            h1 {
+                font-size: 2em;
+            }
+            
+            .features {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🚀 Trang Web Đầu Tiên</h1>
+        <p class="subtitle">
+            Chào mừng bạn đến với trang web đầu tiên được triển khai tự động với Jenkins CI/CD Pipeline!
+        </p>
+        
+        <div class="features">
+            <div class="feature-card">
+                <h3>🔄 Auto Deploy</h3>
+                <p>Tự động build và deploy khi có thay đổi trên GitHub</p>
+            </div>
+            
+            <div class="feature-card">
+                <h3>☸️ Kubernetes</h3>
+                <p>Triển khai trên AWS EKS với khả năng mở rộng cao</p>
+            </div>
+            
+            <div class="feature-card">
+                <h3>🧪 Testing</h3>
+                <p>Kiểm thử tự động được tích hợp vào pipeline</p>
+            </div>
+            
+            <div class="feature-card">
+                <h3>📊 Monitoring</h3>
+                <p>Theo dõi trạng thái ứng dụng real-time</p>
+            </div>
+        </div>
+        
+        <div class="status">✅ Đang hoạt động</div>
+        
+        <div class="version">
+            Version: 1.0.0 | Build: <span id="buildNumber">001</span> | 
+            Deployed: <span id="deployTime"></span>
+        </div>
+    </div>
+
+    <script>
+        // Hiển thị thời gian deploy
+        document.getElementById('deployTime').textContent = new Date().toLocaleString('vi-VN');
+        
+        // Tự động cập nhật build number (simulation)
+        setInterval(() => {
+            const buildElement = document.getElementById('buildNumber');
+            let currentBuild = parseInt(buildElement.textContent);
+            buildElement.textContent = String(currentBuild + 1).padStart(3, '0');
+        }, 30000);
+    </script>
+</body>
+</html>
